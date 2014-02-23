@@ -1,0 +1,4 @@
+obj/version.o: version.cpp version.h \
+ /home/jonyesa/piggycoin/src/obj/build.h
+version.cpp version.h :
+ /home/jonyesa/piggycoin/src/obj/build.h :
