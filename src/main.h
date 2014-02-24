@@ -547,7 +547,7 @@ public:
     {
         // Large (in bytes) low-priority (new, small-coin) transactions
         // need a fee.
-        return dPriority > COIN * 720 / 250; // 720 blocks found a day. Priority cutoff is 1 PGC day / 250 bytes.
+        return dPriority > COIN * 720 / 250; // 720 blocks found a day. Priority cutoff is 1 PIG day / 250 bytes.
     }
 
     int64 GetMinFee(unsigned int nBlockSize=1, bool fAllowFree=true, enum GetMinFee_mode mode=GMF_BLOCK) const

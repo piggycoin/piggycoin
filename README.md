@@ -1,4 +1,4 @@
-PiggyCoin (PGC)
+PiggyCoin (PIG)
 ===========
 
 PIGGYCOIN, your first cryptocurrency. Oink!
