@@ -165,7 +165,7 @@ std::string
 HelpRequiringPassphrase()
 {
     return pwalletMain->IsCrypted()
-        ? "\nrequires wallet passphrase to be set with walletpassphrase first"
+        ? "\nrequires piggybank passphrase to be set with piggybankpassphrase first"
         : "";
 }
 
@@ -173,7 +173,7 @@ void
 EnsureWalletIsUnlocked()
 {
     if (pwalletMain->IsLocked())
-        throw JSONRPCError(-13, "Error: Please enter the wallet passphrase with walletpassphrase first.");
+        throw JSONRPCError(-13, "Error: Please enter the piggybank passphrase with piggybankpassphrase first.");
 }
 
 void WalletTxToJSON(const CWalletTx& wtx, Object& entry)
@@ -663,7 +663,7 @@ Value sendtoaddress(const Array& params, bool fHelp)
         wtx.mapValue["to"]      = params[3].get_str();
 
     if (pwalletMain->IsLocked())
-        throw JSONRPCError(-13, "Error: Please enter the wallet passphrase with walletpassphrase first.");
+        throw JSONRPCError(-13, "Error: Please enter the piggybank passphrase with piggybankpassphrase first.");
 
     string strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, wtx);
     if (strError != "")
@@ -1744,13 +1744,13 @@ Value walletlock(const Array& params, bool fHelp)
     if (pwalletMain->IsCrypted() && (fHelp || params.size() != 0))
         throw runtime_error(
             "walletlock\n"
-            "Removes the wallet encryption key from memory, locking the wallet.\n"
-            "After calling this method, you will need to call walletpassphrase again\n"
-            "before being able to call any methods which require the wallet to be unlocked.");
+            "Removes the piggybank encryption key from memory, locking the piggybank.\n"
+            "After calling this method, you will need to call piggybankpassphrase again\n"
+            "before being able to call any methods which require the piggybank to be unlocked.");
     if (fHelp)
         return true;
     if (!pwalletMain->IsCrypted())
-        throw JSONRPCError(-15, "Error: running with an unencrypted wallet, but walletlock was called.");
+        throw JSONRPCError(-15, "Error: running with an unencrypted piggybank, but piggybanklock was called.");
 
     {
         LOCK(cs_nWalletUnlockTime);
@@ -1766,12 +1766,12 @@ Value encryptwallet(const Array& params, bool fHelp)
 {
     if (!pwalletMain->IsCrypted() && (fHelp || params.size() != 1))
         throw runtime_error(
-            "encryptwallet <passphrase>\n"
-            "Encrypts the wallet with <passphrase>.");
+            "encryptpiggybank <passphrase>\n"
+            "Encrypts the piggybank with <passphrase>.");
     if (fHelp)
         return true;
     if (pwalletMain->IsCrypted())
-        throw JSONRPCError(-15, "Error: running with an encrypted wallet, but encryptwallet was called.");
+        throw JSONRPCError(-15, "Error: running with an encrypted piggybank, but encryptpiggybank was called.");
 
     // TODO: get rid of this .c_str() by implementing SecureString::operator=(std::string)
     // Alternately, find a way to make params[0] mlock()'d to begin with.
@@ -1785,13 +1785,13 @@ Value encryptwallet(const Array& params, bool fHelp)
             "Encrypts the wallet with <passphrase>.");
 
     if (!pwalletMain->EncryptWallet(strWalletPass))
-        throw JSONRPCError(-16, "Error: Failed to encrypt the wallet.");
+        throw JSONRPCError(-16, "Error: Failed to encrypt the piggybank.");
 
     // BDB seems to have a bad habit of writing old data into
     // slack space in .dat files; that is bad if the old data is
     // unencrypted private keys.  So:
     StartShutdown();
-    return "wallet encrypted; PiggyCoin server stopping, restart to run with encrypted wallet";
+    return "piggybank encrypted; PiggyCoin server stopping, restart to run with encrypted piggybank";
 }
 
 class DescribeAddressVisitor : public boost::static_visitor<Object>

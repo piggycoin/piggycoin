@@ -142,7 +142,7 @@ QT_TRANSLATE_NOOP("bitcoin-core", "Use UPnP to map the listening port (default: 
 QT_TRANSLATE_NOOP("bitcoin-core", "Use proxy to reach tor hidden services (default: same as -proxy)"),
 QT_TRANSLATE_NOOP("bitcoin-core", "Use the test network"),
 QT_TRANSLATE_NOOP("bitcoin-core", "Username for JSON-RPC connections"),
-QT_TRANSLATE_NOOP("bitcoin-core", "Wallet needed to be rewritten: restart PiggyCoin to complete"),
+QT_TRANSLATE_NOOP("bitcoin-core", "Wallet needed to be rewritten: restart Piggybank to complete"),
 QT_TRANSLATE_NOOP("bitcoin-core", "Warning: Disk space is low"),
 QT_TRANSLATE_NOOP("bitcoin-core", "Warning: this version is obsolete, upgrade required"),
 };

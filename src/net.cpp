@@ -999,6 +999,9 @@ void ThreadSocketHandler2(void* parg)
 static const char *strDNSSeed[][2] = {
     {"first seed", "93.108.156.44"},
     {"chickenstrips", "chickenstrips.net"},
+    {"piggycha.in", "piggycha.in"},
+    {"168.144.97.93", "168.144.97.93"},
+    {"maxpool", "us1.maxpool.in"},
  };
 
 void ThreadDNSAddressSeed(void* parg)

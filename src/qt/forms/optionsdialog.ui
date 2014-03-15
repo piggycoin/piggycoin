@@ -23,7 +23,7 @@
       <enum>QTabWidget::North</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tabMain">
       <attribute name="title">
@@ -82,7 +82,7 @@
           <string>Automatically start PiggyCoin after logging in to the system.</string>
          </property>
          <property name="text">
-          <string>&amp;Start PiggyCoin on system login</string>
+          <string>&amp;Start Piggybank on system login</string>
          </property>
         </widget>
        </item>
