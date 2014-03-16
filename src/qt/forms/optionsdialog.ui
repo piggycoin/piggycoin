@@ -82,7 +82,7 @@
           <string>Automatically start PiggyCoin after logging in to the system.</string>
          </property>
          <property name="text">
-          <string>&amp;Start Piggybank on system login</string>
+          <string>&amp;Start PiggyBank on system login</string>
          </property>
         </widget>
        </item>
