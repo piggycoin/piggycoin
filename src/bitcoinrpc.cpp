@@ -1766,12 +1766,12 @@ Value encryptwallet(const Array& params, bool fHelp)
 {
     if (!pwalletMain->IsCrypted() && (fHelp || params.size() != 1))
         throw runtime_error(
-            "encryptPiggyBank <passphrase>\n"
+            "encryptwallet <passphrase>\n"
             "Encrypts the PiggyBank with <passphrase>.");
     if (fHelp)
         return true;
     if (pwalletMain->IsCrypted())
-        throw JSONRPCError(-15, "Error: running with an encrypted PiggyBank, but encryptPiggyBank was called.");
+        throw JSONRPCError(-15, "Error: running with an encrypted PiggyBank, but encryptwallet was called.");
 
     // TODO: get rid of this .c_str() by implementing SecureString::operator=(std::string)
     // Alternately, find a way to make params[0] mlock()'d to begin with.
